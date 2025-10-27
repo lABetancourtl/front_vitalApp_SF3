@@ -17,6 +17,7 @@ export class PacienteService {
 
   /** 🔹 Obtener todos los pacientes */
   listar(): Observable<ItemPacienteDTO[]> {
+    console.log('API URL:', this.apiUrl); // Línea de depuración
     return this.http.get<ItemPacienteDTO[]>(this.apiUrl);
   }
 
