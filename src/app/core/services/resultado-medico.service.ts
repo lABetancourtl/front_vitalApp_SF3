@@ -5,7 +5,7 @@ import {
   CrearResultadoDTO,
   ItemResultadoDTO
 } from '../models/resultado-medico.model';
-import { environment } from '../../../enviroments/enviroments';
+import { environment } from '../../../environments/enviroment';
 
 @Injectable({ providedIn: 'root' })
 export class ResultadoMedicoService {

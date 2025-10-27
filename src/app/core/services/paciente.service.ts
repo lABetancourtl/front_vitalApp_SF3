@@ -7,7 +7,7 @@ import {
   EditarPacienteDTO,
   InformacionPacienteDTO
 } from '../models/paciente.model';
-import { environment } from '../../../enviroments/enviroments';
+import { environment } from '../../../environments/enviroment';
 
 @Injectable({ providedIn: 'root' })
 export class PacienteService {

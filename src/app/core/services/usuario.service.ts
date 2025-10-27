@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../enviroments/enviroments';
+import { environment } from '../../../environments/enviroment';
 
 // Modelo de datos (ajústalo si tienes una interfaz Usuario en /models)
 export interface Usuario {
