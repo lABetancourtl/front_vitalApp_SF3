@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h3>Lista de Citas Médicas</h3>
+
+  <div class="d-flex justify-content-end mb-3">
+    <a routerLink="/citas/nueva" class="btn btn-primary">➕ Nueva Cita</a>
+  </div>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando citas...</p>
+  </div>
+
+<table class="table table-striped" *ngIf="!cargando && citas.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Paciente</th>
+      <th>Médico</th>
+      <th>Fecha Cita</th>
+      <th>Motivo</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of citas">
+      <!-- ID: id o cita_id -->
+      <td>{{ c.id || $any(c).cita_id }}</td>
+
+      <!-- Nombres con fallback al ID -->
+      <td>{{ $any(c).paciente_nombre || $any(c).nombre_paciente || $any(c).paciente || c.paciente_id }}</td>
+      <td>{{ $any(c).medico_nombre   || $any(c).nombre_medico   || $any(c).medico   || c.medico_id }}</td>
+
+      <td>{{ c.fecha_cita | date:'short' }}</td>
+      <td>{{ c.motivo }}</td>
+      <td>{{ c.estado }}</td>
+      <td>
+        <a
+          [routerLink]="['/citas/editar', (c.id || $any(c).cita_id)]"
+          class="btn btn-sm btn-warning me-2">
+          ✏️ Editar
+        </a>
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="eliminarCita(c.id || $any(c).cita_id)">
+          🗑️ Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <div *ngIf="!cargando && citas.length === 0" class="text-center mt-4">
+    <p>No hay citas registradas.</p>
+  </div>
+</div>

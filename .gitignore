@@ -1,0 +1,82 @@
+# ==========================================
+# 🅰️ Angular - Clean .gitignore
+# ==========================================
+
+# --- Build output ---
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# --- Angular cache ---
+.angular/cache/
+.angular/cache/**
+.angular/cache
+
+# --- Node dependencies ---
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Environment files ---
+# ⚠️ Mantén tus credenciales fuera del repositorio
+src/environments/environment*.ts
+
+# --- IDEs & Editors ---
+# JetBrains (WebStorm, IntelliJ)
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# VS / Rider
+.vs/
+*.user
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# --- Testing & Coverage ---
+/coverage
+/test-output
+/junit.xml
+/karma-results.xml
+/lcov-report
+/coverage-final.json
+
+# --- Temporary & Generated files ---
+*.log
+*.tmp
+*.temp
+*.pid
+*.seed
+*.bak
+*.swp
+*.swo
+*.orig
+
+# --- Package managers ---
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# --- System files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Misc ---
+/typings
+/connect.lock
+/libpeerconnection.log
+/__screenshots__/

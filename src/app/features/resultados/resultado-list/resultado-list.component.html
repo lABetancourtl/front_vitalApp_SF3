@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h3>Resultados Médicos</h3>
+
+  <div class="d-flex justify-content-end mb-3">
+    <a routerLink="/resultados/nuevo" class="btn btn-primary">➕ Nuevo Resultado</a>
+  </div>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando resultados médicos...</p>
+  </div>
+
+  <table class="table table-striped" *ngIf="!cargando && resultados.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cita ID</th>
+        <th>Descripción</th>
+        <th>Archivo</th>
+        <th>Fecha Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of resultados">
+        <td>{{ r.id }}</td>
+        <td>{{ r.cita_id }}</td>
+        <td>{{ r.descripcion }}</td>
+        <td>
+          <a *ngIf="r.archivo_url" [href]="r.archivo_url" target="_blank">📄 Ver archivo</a>
+          <span *ngIf="!r.archivo_url">—</span>
+        </td>
+        <td>{{ r.fecha_resultado | date: 'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!cargando && resultados.length === 0" class="text-center mt-4">
+    <p>No hay resultados médicos registrados.</p>
+  </div>
+</div>

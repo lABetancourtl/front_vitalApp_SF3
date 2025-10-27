@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <h3>Registrar Resultado Médico</h3>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()" class="mt-3">
+    <div class="mb-3">
+      <label class="form-label">ID de Cita</label>
+      <input
+        type="number"
+        formControlName="cita_id"
+        class="form-control"
+        placeholder="Ingrese el ID de la cita"
+        required
+      />
+      <div *ngIf="form.get('cita_id')?.invalid && form.get('cita_id')?.touched" class="text-danger small">
+        Este campo es obligatorio
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <textarea
+        formControlName="descripcion"
+        class="form-control"
+        rows="4"
+        placeholder="Escriba la descripción del resultado"
+        required
+      ></textarea>
+      <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched" class="text-danger small">
+        La descripción es obligatoria (máx. 1000 caracteres)
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Archivo (URL)</label>
+      <input
+        type="text"
+        formControlName="archivo_url"
+        class="form-control"
+        placeholder="Ingrese la URL del archivo o imagen"
+        required
+      />
+      <div *ngIf="form.get('archivo_url')?.invalid && form.get('archivo_url')?.touched" class="text-danger small">
+        Ingrese una URL válida o nombre de archivo
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-success" type="submit" [disabled]="form.invalid">
+        💾 Guardar Resultado
+      </button>
+      <a routerLink="/resultados" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2>{{ titulo }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input class="form-control" formControlName="nombre" />
+      <div class="text-danger" *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+        El nombre es obligatorio
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Correo</label>
+      <input type="email" class="form-control" formControlName="correo" />
+      <div class="text-danger" *ngIf="form.get('correo')?.invalid && form.get('correo')?.touched">
+        Ingresa un correo válido
+      </div>
+    </div>
+
+    <!-- Solo pedir contraseña en modo "crear" -->
+    <div class="mb-3" *ngIf="!usuarioId">
+      <label>Contraseña</label>
+      <input type="password" class="form-control" formControlName="password" />
+    </div>
+
+    <div class="mb-3">
+      <label>Rol</label>
+      <select class="form-select" formControlName="rol">
+        <option value="paciente">Paciente</option>
+        <option value="medico">Médico</option>
+        <option value="admin">Administrador</option>
+      </select>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-success" type="submit" [disabled]="form.invalid || cargando">
+        💾 {{ usuarioId ? 'Actualizar' : 'Guardar' }}
+      </button>
+      <button class="btn btn-secondary" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>

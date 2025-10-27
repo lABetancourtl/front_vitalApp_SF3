@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2>👥 Lista de Usuarios</h2>
+
+  <div class="d-flex justify-content-end mb-3">
+    <a routerLink="/usuarios/nuevo" class="btn btn-primary">➕ Nuevo Usuario</a>
+  </div>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando usuarios...</p>
+  </div>
+
+  <table class="table table-striped" *ngIf="!cargando && usuarios.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of usuarios">
+        <td>{{ u.id }}</td>
+        <td>{{ u.nombre }}</td>
+        <td>{{ u.correo }}</td>
+        <td>{{ u.rol }}</td>
+        <td>
+          <a [routerLink]="['/usuarios/editar', u.id]" class="btn btn-sm btn-warning me-2">✏️ Editar</a>
+          <button class="btn btn-sm btn-danger" (click)="eliminarUsuario(u.id!)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!cargando && usuarios.length === 0" class="text-center mt-4">
+    <p>No hay usuarios registrados.</p>
+  </div>
+</div>
