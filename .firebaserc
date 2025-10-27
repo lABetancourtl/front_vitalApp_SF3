@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "salud-vital-sf3-front"
-  }
+    "default": "vitalapp-2546f"
+  },
+  "targets": {},
+  "etags": {}
 }
