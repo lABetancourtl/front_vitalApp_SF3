@@ -2,7 +2,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../enviroments/enviroments';
+
 
 // ✅ Modelos de Citas
 import {
@@ -17,6 +18,7 @@ import {
   ItemResultadoDTO,
   CrearResultadoDTO
 } from '../models/resultado-medico.model';
+
 
 @Injectable({ providedIn: 'root' })
 export class CitaMedicaService {

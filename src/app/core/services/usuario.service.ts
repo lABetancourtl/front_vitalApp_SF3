@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../enviroments/enviroments';
 
 // Modelo de datos (ajústalo si tienes una interfaz Usuario en /models)
 export interface Usuario {
@@ -15,7 +16,7 @@ export interface Usuario {
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:3000/api/usuarios'; // ✅ Cambia según tu backend Node.js
+  private apiUrl = `${environment.apiUrl}/pacientes`; 
 
   constructor(private http: HttpClient) {}
 
